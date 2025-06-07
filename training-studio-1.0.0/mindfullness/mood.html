@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker</title>
+  <link rel="stylesheet" href="mood.css">
+</head>
+<body>
+  <header>
+    <h1 id="assessment-title">Mood Tracker</h1>
+  </header>
+  <main>
+    <form id="mood-form">
+      <div id="questions-container">
+        <div class="question">
+          <label for="mood">How are you feeling today?</label>
+          <select id="mood" name="mood">
+            <option value="select">Select</option>
+            <option value="very happy">Very Happy</option>
+            <option value="happy">Happy</option>
+            <option value="neutral">Neutral</option>
+            <option value="sad">Sad</option>
+            <option value="very sad">Very Sad</option>
+          </select>
+        </div>
+        <div class="question">
+          <label for="energy">How is your energy level today?</label>
+          <select id="energy" name="energy">
+            <option value="select">Select</option>
+            <option value="very high">Very High</option>
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+            <option value="very low">Very Low</option>
+          </select>
+        </div>
+        <div class="question">
+          <label for="sleep">How did you sleep last night?</label>
+          <select id="sleep" name="sleep">
+            <option value="select">Select</option>
+            <option value="very well">Very Well</option>
+            <option value="well">Well</option>
+            <option value="okay">Okay</option>
+            <option value="poorly">Poorly</option>
+            <option value="very poorly">Very Poorly</option>
+          </select>
+        </div>
+        <div class="question">
+          <label for="stress">How stressed do you feel today?</label>
+          <select id="stress" name="stress">
+            <option value="select">Select</option>
+            <option value="not at all">Not at all</option>
+            <option value="a little">A little</option>
+            <option value="moderately">Moderately</option>
+            <option value="quite a bit">Quite a bit</option>
+            <option value="extremely">Extremely</option>
+          </select>
+        </div>
+        <div class="question">
+          <label for="enjoyment">How much enjoyment have you had today?</label>
+          <select id="enjoyment" name="enjoyment">
+            <option value="select">Select</option>
+            <option value="a lot">A lot</option>
+            <option value="quite a bit">Quite a bit</option>
+            <option value="moderately">Moderately</option>
+            <option value="a little">A little</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" onclick="submitMood()">Submit</button>
+    </form>
+  </main>
+  <script src="mood.js"></script>
+</body>
+</html>
+
+
+ 

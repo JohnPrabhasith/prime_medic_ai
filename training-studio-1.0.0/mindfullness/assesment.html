@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Assessment</title>
+  <link rel="stylesheet" href="assessmentstyle.css">
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            autoDisplay: false,
+            includedLanguages: 'en,hi,ta,te,bn,gu' // Add your desired languages
+        }, 'google_translate_element');
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+  <header>
+    <h1>Mental Health Assessment</h1>
+    <p>Choose an assessment to begin:</p>
+  </header>
+  <div id="google_translate_element"></div>
+  <main>
+    <div class="assessment-buttons">
+      <button class="assessment-btn" onclick="startAssessment('Anxiety')">
+        <img src="anxiety.png" alt="Anxiety" class="assessment-image">
+        <span>Anxiety Test</span>
+      </button>
+      <button class="assessment-btn" onclick="startAssessment('Stress')">
+        <img src="stress.png" alt="Stress" class="assessment-image">
+        <span>Stress Test</span>
+      </button>
+      <button class="assessment-btn" onclick="startAssessment('Depression')">
+        <img src="depression.png" alt="Depression" class="assessment-image">
+        <span>Depression Test</span>
+      </button>
+    </div>
+  </main>
+  <script src="assesmentscript.js"></script>
+</body>
+</html>

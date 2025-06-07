@@ -1,0 +1,75 @@
+body {
+    background-color: #C6BADE;
+    font-family: 'Arial', serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #C6BADE;
+    padding: 20px;
+    text-align: center;
+    color: #54096b;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box, .sleep-tracker {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box textarea, .sleep-tracker input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.chat-box button, .sleep-tracker button {
+    width: 100%;
+    padding: 12px;
+    background: #6C5B7B;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-box button:hover, .sleep-tracker button:hover {
+    background: #54096b;
+}
+
+#response, #sleepLog, #sleepFeedback {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.sleep-tracker canvas {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .chat-box, .sleep-tracker {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .header {
+        font-size: 20px;
+    }
+}

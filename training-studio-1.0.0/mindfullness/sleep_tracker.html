@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sleep Tracker</title>
+    <link rel="stylesheet" href="sleepstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">Sleep Tracker</div>
+    <div class="sleep-tracker">
+        <h2>Log Your Sleep</h2>
+        <label for="sleepTime">Sleep Time:</label>
+        <input type="time" id="sleepTime">
+        <label for="wakeTime">Wake Time:</label>
+        <input type="time" id="wakeTime">
+        <button onclick="logSleep()">Log Sleep</button>
+        <canvas id="sleepChart" width="400" height="200"></canvas>
+        <div id="sleepLog"></div>
+        <div id="sleepFeedback"></div>
+    </div>
+    <script>
+        let sleepData = [];
+
+        function logSleep() {
+            const sleepTime = document.getElementById('sleepTime').value;
+            const wakeTime = document.getElementById('wakeTime').value;
+
+            if (sleepTime && wakeTime) {
+                const sleepDuration = calculateSleepDuration(sleepTime, wakeTime);
+                sleepData.push(sleepDuration);
+                updateChart();
+                displayFeedback(sleepDuration);
+                document.getElementById('sleepLog').innerHTML += `<p>Sleep Time: ${sleepTime}, Wake Time: ${wakeTime}, Duration: ${sleepDuration} hours</p>`;
+            } else {
+                alert("Please enter both sleep and wake times.");
+            }
+        }
+
+        function calculateSleepDuration(sleepTime, wakeTime) {
+            const sleepDate = new Date(`1970-01-01T${sleepTime}Z`);
+            const wakeDate = new Date(`1970-01-01T${wakeTime}Z`);
+            let duration = (wakeDate - sleepDate) / (1000 * 60 * 60);
+            if (duration < 0) duration += 24; // Handle overnight sleep
+            return duration.toFixed(2);
+        }
+
+        function updateChart() {
+            const ctx = document.getElementById('sleepChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: sleepData.length }, (_, i) => i + 1),
+                    datasets: [{
+                        label: 'Hours Slept',
+                        data: sleepData,
+                        borderColor: '#6C5B7B',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayFeedback(duration) {
+            let feedback = "Great job! Keep up the good work.";
+            if (duration < 6) {
+                feedback = "You're not getting enough sleep. Aim for at least 7-8 hours.";
+            } else if (duration > 9) {
+                feedback = "You're getting too much sleep. Aim for 7-8 hours.";
+            }
+            document.getElementById('sleepFeedback').textContent = feedback;
+        }
+    </script>
+</body>
+</html>
+

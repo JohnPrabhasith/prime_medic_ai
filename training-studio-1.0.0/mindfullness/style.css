@@ -1,0 +1,224 @@
+
+header { 
+    position: fixed;
+    width: 100%;
+    left:0;
+    top:0;
+    z-index: 100;
+    background-color: #392A48; 
+}
+body{
+    background-color: rgb(247, 244, 240);
+}
+.Homeimg {
+    padding-top: 3rem;
+    height: fit-content;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logopic {
+    height: 5rem;
+    padding: 4px;
+    border-radius: 50%;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+.logo{
+color: rgb(250, 247, 247);
+    font-size: 26px;
+    text-decoration: none;
+}
+.nav-link {
+    color: rgb(250, 247, 247);
+    font-size: 20px;
+    text-decoration: none;
+}
+.btn-Login,.btn-Signup{
+    color: rgb(31, 30, 30);
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.LogOut{
+    color: rgb(31, 30, 30);
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.btn {
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-padding-y: 0.3rem;
+    border-radius: 4rem;
+    border: none;
+    margin-right: 2rem;
+    background-color: aliceblue;
+}
+.btn-element {
+    padding: 3px 3px;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    header { 
+        position: relative;
+    }
+    .nav {
+        flex-direction: column;
+    }
+    .Homeimg{
+        padding-top: 0px;
+    }
+    .navbar {
+        flex-direction: column;
+    }
+    .btn-element {
+        justify-content: center;
+    }
+    .nav-link, .logo, .LogOut {
+        font-size: 16px;
+    }
+    .logopic {
+        height: 3rem;
+    }
+    .btn{
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+        justify-content: center;
+    }
+    #cardimg {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    .card-Container { 
+        display: flex; 
+        flex-direction: column; /* Change this to column to stack items vertically */ 
+        gap: 20px; 
+        justify-content: center; 
+        padding-top: 3rem;
+     }
+    #yellowcard,#purplecard{
+        height: fit-content;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .nav {
+        flex-direction: column;
+    }
+    .nav-container{
+        flex-direction: column;
+    }
+    .navbar {
+        flex-direction: column;
+    }
+    .btn-element {
+        justify-content: center;
+    }
+    .nav-link, .logo, .LogOut {
+        font-size: 14px;
+    }
+    .logopic {
+        height: 2rem;
+    }
+    .btn {
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+    }
+    .card-Container { 
+        display: flex; 
+        flex-direction: column; /* Change this to column to stack items vertically */ 
+        gap: 20px; 
+        justify-content: center; 
+        padding-top: 3rem;
+     }
+    .card-yellow,.card-purple{
+        height: fit-content;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .row-cols-md-2>* 
+    { flex: 0 0 auto; 
+        width: 25%; 
+    } 
+}
+.btn-group a {
+    margin: 2px 5px;
+}
+.btn-secondary{
+  color: black;
+  font-weight: 500;
+}
+
+.aboutus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+    background: #392A48;
+    padding-bottom:10px ; 
+    bottom: 0;
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    color: white;
+    text-transform: uppercase;
+    padding-top: 30px;
+}
+.card-Container { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    padding: 20px; 
+    margin-bottom: 20px;
+  } 
+  .Card { 
+    width: 450px; 
+    height: 350px;
+    padding: 20px; 
+    /* margin-left: 15px; */
+    border-radius: 10px; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: white; 
+  }
+  .card-yellow { 
+  background-color: #ece284; 
+  } 
+  .card-purple { 
+  background-color: #CE93D8; 
+  } 
+  #cardbtn { 
+  background-color: #673AB7; 
+  color: white; 
+  border: none; 
+  padding: 10px 40px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+  .card-img-top {
+    height: 600px; 
+    object-fit: cover; 
+}

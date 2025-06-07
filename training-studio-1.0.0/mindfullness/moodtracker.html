@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mood Tracker - Moodfit Inspired</title>
+   <link rel="stylesheet" href="styles.css">
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+     body {
+       font-family: 'Arial', sans-serif;
+       background-color:#332a4f;
+       margin: 0;
+       padding: 0;
+       color: #333;
+     }
+ 
+     .container {
+       width: 80%;
+       margin: 0 auto;
+       padding: 20px;
+     }
+ 
+     header {
+    background-color: #C6BADE;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 8px 8px 16pxpx rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+ 
+     h1 {
+       color: #0f253b;
+       font-size: 2em;
+     }
+ 
+     p {
+       font-size: 1rem;
+       color: #122233;
+     }
+ 
+     section {
+       margin-bottom: 40px;
+       padding: 20px;
+       background-color: #C6BADE;
+       border-radius: 8px;
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     }
+ 
+     h2 {
+       color: #111a23;
+       font-size: 1.8em;
+       margin-bottom: 15px;
+     }
+ 
+     label {
+       font-size: 1.1em;
+       margin-right: 10px;
+     }
+ 
+     select, textarea, button {
+       padding: 10px;
+       margin: 10px 0;
+       width: 100%;
+       font-size: 1em;
+       border: 1px solid #C6BADE;
+       border-radius: 5px;
+     }
+     select{
+      opacity: 0.5;
+     }
+     textarea {
+       height: 120px;
+       resize: none;
+       opacity: 0.5;
+     }
+ 
+     button {
+       background-color: #3d2371;
+       color: white;
+       border: none;
+       cursor: pointer;
+       font-size: 1.2em;
+     }
+ 
+     button:hover {
+       background-color: #C6BADE;
+       color: #3f2474;
+       border: solid 1px;
+     }
+ 
+     .mood-history {
+       background-color: #C6BADE;
+       padding: 15px;
+       border-radius: 8px;
+     }
+ 
+     .mood-history div {
+       padding: 10px;
+       margin-bottom: 10px;
+       background-color: #fff;
+       border-left: 5px solid #3f2474;
+     }
+ 
+     .mood-history p {
+       margin: 0;
+       font-size: 1.1em;
+     }
+ 
+     .mood-trend canvas {
+       max-width: 100%;
+       height: 300px;
+     }
+ 
+     /* Chart container */
+     .mood-trend {
+       background-color: #C6BADE;
+       padding: 20px;
+       border-radius: 8px;
+     }
+   </style>
+ </head>
+ <body>
+   <div class="container">
+     <header>
+       <h1>Mood Tracker</h1>
+       <p>Track your daily mood and visualize trends over time.</p>
+     </header>
+ 
+     <!-- Mood Logging Section -->
+     <section class="mood-log">
+       <h2>Log Your Mood</h2>
+       <form id="moodForm">
+         <label for="mood">Select your mood:</label>
+         <select id="mood" name="mood">
+          <option value="Select">Select</option>
+           <option value="angry">Angry</option>
+           <option value="happy">Happy</option>
+           <option value="sad">Sad</option>
+           <option value="good">Good</option>
+         </select>
+ 
+         <br><br>
+ 
+         <label for="comment">Optional: Add a comment or trigger:</label>
+         <textarea id="comment" name="comment"></textarea>
+ 
+         <br><br>
+         <button type="submit">Save Mood</button>
+       </form>
+     </section>
+ 
+     <!-- Mood History Section -->
+     <section class="mood-history">
+       <h2>Your Mood History</h2>
+       <div id="moodHistory"></div>
+     </section>
+ 
+     <!-- Mood Trend Section -->
+     <section class="mood-trend">
+       <h2>Mood Trend Over Time</h2>
+       <canvas id="moodTrendChart" width="400" height="200"></canvas>
+     </section>
+   </div>
+ 
+   <script>
+     // Data storage for moods, comments, and timestamps
+     const moodData = [];
+     const moodLabels = [];
+     const timeLabels = [];
+ 
+     // Mood Form Submission
+     document.getElementById('moodForm').addEventListener('submit', function(e) {
+       e.preventDefault();
+ 
+       const mood = document.getElementById('mood').value;
+       const comment = document.getElementById('comment').value;
+       const timestamp = new Date().toLocaleString();
+ 
+       // Save the mood data
+       moodData.push({ mood, comment, timestamp });
+       moodLabels.push(mood);
+       timeLabels.push(timestamp);
+ 
+       // Display Mood History
+       displayMoodHistory();
+ 
+       // Update Mood Trend Chart
+       updateMoodTrendChart();
+ 
+       // Reset the form
+       document.getElementById('moodForm').reset();
+     });
+ 
+     // Display Mood History
+     function displayMoodHistory() {
+       const historyContainer = document.getElementById('moodHistory');
+       historyContainer.innerHTML = ''; // Clear previous history
+ 
+       moodData.forEach(entry => {
+         const moodEntry = document.createElement('div');
+         moodEntry.innerHTML = `<p><strong>${entry.timestamp}</strong> - Mood: ${entry.mood} <br>Comment: ${entry.comment || 'N/A'}</p>`;
+         historyContainer.appendChild(moodEntry);
+       });
+     }
+ 
+     // Update Mood Trend Chart
+     function updateMoodTrendChart() {
+       const ctx = document.getElementById('moodTrendChart').getContext('2d');
+ 
+       // Count moods over time
+       const moodCount = {
+         angry: 0,
+         happy: 0,
+         sad: 0,
+         good: 0
+       };
+ 
+       moodLabels.forEach(mood => {
+         moodCount[mood]++;
+       });
+ 
+       // Prepare data for the chart
+       const chartData = {
+         labels: timeLabels, // Time labels for each mood entry
+         datasets: [
+           {
+             label: 'Angry',
+             data: timeLabels.map((_, index) => (moodLabels[index] === 'angry' ? 1 : 0)),
+             borderColor: 'red',
+             fill: false,
+             tension: 0.1
+           },
+           {
+             label: 'Happy',
+             data: timeLabels.map((_, index) => (moodLabels[index] === 'happy' ? 1 : 0)),
+             borderColor: 'yellow',
+             fill: false,
+             tension: 0.1
+           },
+           {
+             label: 'Sad',
+             data: timeLabels.map((_, index) => (moodLabels[index] === 'sad' ? 1 : 0)),
+             borderColor: 'blue',
+             fill: false,
+             tension: 0.1
+           },
+           {
+             label: 'Good',
+             data: timeLabels.map((_, index) => (moodLabels[index] === 'good' ? 1 : 0)),
+             borderColor: 'green',
+             fill: false,
+             tension: 0.1
+           }
+         ]
+       };
+ 
+       // Chart configuration
+       const config = {
+         type: 'line',
+         data: chartData,
+         options: {
+           responsive: true,
+           scales: {
+             x: {
+               ticks: {
+                 autoSkip: true,
+                 maxRotation: 90
+               }
+             },
+             y: {
+               beginAtZero: true
+             }
+           }
+         }
+       };
+ 
+       // Render the chart
+       new Chart(ctx, config);
+     }
+   </script>
+ </body>
+ </html>
+ 

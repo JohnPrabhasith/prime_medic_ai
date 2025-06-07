@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness & YouTube Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F3D9E5;
+            color: #333;
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        .mindfulness-section {
+            background-color: #b296ec;
+            color: #4A3267;
+            text-align: center;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .mindfulness-section .title {
+            font-size: 5rem;
+            font-weight: bold;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .mindfulness-section .background-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            z-index: 0;
+        }
+
+        .mindfulness-section .background-images img {
+            width: 100px;
+            height: 105px;
+            margin: 7.5px;
+            transform: rotate(-10deg);
+        }
+
+        .mindfulness-section .background-images img:nth-child(even) {
+            transform: rotate(10deg);
+        }
+
+        .mindfulness-section .bg_img img {
+            position: relative;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .youtube-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .youtube-card {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #4A3267;
+        }
+
+        .youtube-card img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+        }
+
+        .youtube-card a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #DE638A;
+            border-radius: 5px;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+
+        .youtube-card a:hover {
+            background-color: #F7B9C4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mindfulness Playlist Section -->
+    <div class="section mindfulness-section">
+        <div class="title"> </div>
+        <div class="background-images">
+            <img src="img1.jpg" alt="Song 1">
+            <img src="img2.jpg" alt="Song 2">
+            <img src="img3.jpg" alt="Song 3">
+            <img src="img4.jpg" alt="Song 4">
+            <img src="img6.jpg" alt="Song 5">
+            <img src="img7.jpg" alt="Song 6">
+            <img src="img1.jpg" alt="Song 7">
+            <img src="img2.jpg" alt="Song 8">
+            <img src="img3.jpg" alt="Song 9">
+            <img src="img4.jpg" alt="Song 10">
+            <img src="img7.jpg" alt="Song 10">
+        </div>
+        <div class="bg_img">
+            <img src="bg_img.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- YouTube Links Section -->
+    <div class="section youtube-section">
+        <!-- Card 1 -->
+        <div class="youtube-card">
+            <img src="image1-url.jpg" alt="Thumbnail 1">
+            <a href="https://www.youtube.com/live/joRVkFrxuS4?si=dqO0P7ToG_3Ph6nr" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="youtube-card">
+            <img src="image2-url.jpg" alt="Thumbnail 2">
+            <a href="https://www.youtube.com/live/PnRFjKgiWWU?si=1erSyVz2_aUBR5GN" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="youtube-card">
+            <img src="image3-url.jpg" alt="Thumbnail 3">
+            <a href="https://youtu.be/HkHIdvNUKCM?si=ZzbryR4RuqoosBNd" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 4 -->
+        <div class="youtube-card">
+            <img src="image4-url.jpg" alt="Thumbnail 4">
+            <a href="https://youtu.be/GEVvyIrQZnA?si=Gw9kXuap4AYr3_JF" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 5 -->
+        <div class="youtube-card">
+            <img src="image5-url.jpg" alt="Thumbnail 5">
+            <a href="https://youtu.be/qa76Nc7etVE?si=XW9lHAHxYHBAFAr2" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 6 -->
+        <div class="youtube-card">
+            <img src="image6-url.jpg" alt="Thumbnail 6">
+            <a href="https://youtu.be/8335hP2iim0?si=7aM9R5qtIL0B1swk" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 7 -->
+        <div class="youtube-card">
+            <img src="image7-url.jpg" alt="Thumbnail 7">
+            <a href="https://youtu.be/HZgiAgYXneE?si=polGtBsQ_AKFcB2B" target="_blank">Watch on YouTube</a>
+        </div>
+        <!-- Card 8 -->
+        <div class="youtube-card">
+            <img src="image8-url.jpg" alt="Thumbnail 8">
+            <a href="https://youtu.be/vPvIxwh9N2w?si=H-HTKbg_JW63ZQHK" target="_blank">Watch on YouTube</a>
+        </div>
+    </div>
+</body>
+
+</html>

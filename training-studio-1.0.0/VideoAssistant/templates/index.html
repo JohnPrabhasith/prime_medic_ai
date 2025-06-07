@@ -110,11 +110,24 @@
     .chat-messages::-webkit-scrollbar-thumb:hover {
           background: #484848;
     }
+
   </style>
+   <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              autoDisplay: false,
+              includedLanguages: 'en,hi,ta,te,bn,gu' // Add your desired languages
+          }, 'google_translate_element');
+      }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+      
       <div class="chat-container">
         <div class="chat-header">
+            <div id="google_translate_element"></div>
           <h1>Medical AI Assistant</h1>
           <p>Fast, Accurate, Reliable</p>
     </div>
@@ -123,6 +136,8 @@
           <input type="text" id="message-input" placeholder="Type your medical question...">
           <button id="send-button">Send</button>
     </div>
+   
+
   </div>
       <script>
     const messageInput = document.getElementById('message-input');

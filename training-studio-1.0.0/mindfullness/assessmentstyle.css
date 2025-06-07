@@ -1,0 +1,112 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #F3D9E5;
+  }
+  
+  /* Header Styling */
+  header {
+    background-color: #392A48;
+    color: white;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  /* First Page - Assessment Buttons */
+  .assessment-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .assessment-btn {
+    background-color: #DE638A;
+    color: white;
+    padding: 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .assessment-btn:hover {
+    background-color: #F7B9C4;
+    transform: scale(1.05);
+  }
+  
+  .assessment-image {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 15px;
+  }
+  
+  .assessment-btn span {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  
+  /* Questions Page Styling */
+  #questions-container {
+    margin-bottom: 40px;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .question select {
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+    margin-top: 10px;
+  }
+  
+  /* Result Page Styling */
+  #result-container {
+    font-size: 1.5em;
+    padding: 30px;
+  }
+  
+  canvas {
+    margin: 20px auto;
+    display: block;
+    max-width: 300px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 15px 25px;
+    background-color: #392A48;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #DE638A;
+  }
+  
+  img.result-image {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    display: block;
+  }
+  
